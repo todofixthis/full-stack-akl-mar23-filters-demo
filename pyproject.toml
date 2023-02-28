@@ -1,0 +1,12 @@
+[project]
+name = "full_stack_ack_filters_demo"
+version = "1.0.0"
+description = "Shows how to use the Filters lib to validate complex payloads"
+requires-python = ">= 3.9"
+authors = [
+    { email = "Phoenix Zerin <phx@phx.nz>" }
+]
+
+dependencies = [
+    "phx-filters[django,iso] >= 3.3.0"
+]
