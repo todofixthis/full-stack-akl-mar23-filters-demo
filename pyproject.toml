@@ -8,5 +8,7 @@ authors = [
 ]
 
 dependencies = [
+    "django",
+    "gunicorn",
     "phx-filters[django,iso] >= 3.3.0"
 ]
