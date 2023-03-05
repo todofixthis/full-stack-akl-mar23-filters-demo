@@ -1,0 +1,9 @@
+- model: importer.User
+  pk: 42
+  fields:
+    username: 'demo_user'
+- model: importer.Session
+  pk: 1
+  fields:
+    session_key: 'f3ef1ad1-b148-4343-8f99-54bbda721ccb'
+    user_id: 42
