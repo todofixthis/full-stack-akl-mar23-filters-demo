@@ -18,11 +18,17 @@ def ingest_applicant_info_module(request: HttpRequest) -> HttpResponse:
     """
     schema = NonEmptyString | f.JsonDecode | f.Type(dict) | f.FilterMapper(
         {
-            'birthday': NonEmptyString | f.Date |
-                        f.Max(date.today() - relativedelta(years=18)),
-            'gender': NonEmptyString | f.Choice({'F', 'M', 'N'}),
-            'utcOffset': NonEmptyString | f.Decimal |
-                         f.Round('0.25') | f.Min(-12) | f.Max(14)
+            'applicantInfoModule': f.Required | f.Type(dict) | f.FilterMapper(
+                {
+                    'birthday': NonEmptyString | f.Date |
+                                f.Max(date.today() - relativedelta(years=18)),
+                    'gender': NonEmptyString | f.Choice({'F', 'M', 'N'}),
+                    'utcOffset': NonEmptyString | f.Decimal |
+                                 f.Round('0.25') | f.Min(-12) | f.Max(14)
+                },
+                allow_extra_keys=False,
+                allow_missing_keys=False,
+            ),
         },
         allow_extra_keys=False,
         allow_missing_keys=False,
